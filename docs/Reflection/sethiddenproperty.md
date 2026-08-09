@@ -4,7 +4,7 @@
 
     Some executors implement this function using [`#!luau setscriptable`](./setscriptable.md), which is limited and/or detectable.
 
-`#!luau sethiddenproperty` assigns a value to a hidden or non-scriptable property of an [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance), even if that property is normally read-only or inaccessible.
+`#!luau sethiddenproperty` assigns a value to a hidden or non-scriptable property of an [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance), even if that property is inaccessible.
 
 It returns `#!luau true` if the property is hidden and was successfully written to, or `#!luau false` if the property wasn't hidden but was still updated.
 
@@ -27,9 +27,9 @@ function sethiddenproperty(instance: Instance, property_name: string, property_v
 ```luau title="Setting a hidden property value" linenums="1"
 local part = Instance.new("Part")
 
-print(gethiddenproperty(part, "IsInSandbox")) -- Output: false, true
+print(gethiddenproperty(part, "DefinesCapabilities")) -- Output: false, true
 
-sethiddenproperty(part, "IsInSandbox", true)
+sethiddenproperty(part, "DefinesCapabilities", true)
 
-print(gethiddenproperty(part, "IsInSandbox")) -- Output: true, true
+print(gethiddenproperty(part, "DefinesCapabilities")) -- Output: true, true
 ```
