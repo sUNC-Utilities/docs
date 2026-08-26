@@ -53,11 +53,11 @@ local function normaliseSnippets(md)
 end
 
 local function normaliseUrls(md, libname)
-    -- "../x/y.md" -> "https://docs.sunc.su/x/y"
-    md = md:gsub("%.%.%/(.-)%.md", "https://docs.sunc.su/%1")
-    -- "./x.md" with "https://docs.sunc.su/<libname>/x"
-    md = md:gsub("%./(.-)%README.md", "https://docs.sunc.su/" .. libname .. "/%1")
-    md = md:gsub("%./(.-)%.md", "https://docs.sunc.su/" .. libname .. "/%1")
+    -- "../x/y.md" -> "https://docs.sunc.io/x/y"
+    md = md:gsub("%.%.%/(.-)%.md", "https://docs.sunc.io/%1")
+    -- "./x.md" with "https://docs.sunc.io/<libname>/x"
+    md = md:gsub("%./(.-)%README.md", "https://docs.sunc.io/" .. libname .. "/%1")
+    md = md:gsub("%./(.-)%.md", "https://docs.sunc.io/" .. libname .. "/%1")
 
     return md
 end
@@ -88,7 +88,7 @@ for libname, library in pairs(tree) do
         if func == "README" then
             local description = extractIndex(doc)
             jumbo[libname]._description = normaliseUrls(normaliseSnippets(description), libname)
-            jumbo[libname]._link = "https://docs.sunc.su/" .. libname
+            jumbo[libname]._link = "https://docs.sunc.io/" .. libname
         elseif func == "WebSocket" then
             -- do nothing, we will parse this separately later
         elseif libname == "Signals" and func == "Connection" then
@@ -102,7 +102,7 @@ for libname, library in pairs(tree) do
                 a.parameters[param] = normaliseUrls(normaliseSnippets(desc), libname)
             end
 
-            a.link = string.format("https://docs.sunc.su/%s/%s", libname, func)
+            a.link = string.format("https://docs.sunc.io/%s/%s", libname, func)
 
             jumbo[libname][a.title] = a
         end
@@ -140,7 +140,7 @@ print("Building API page...")
 local http = require("coro-http")
 require("string-extensions") -- Richy-Z/string-extensions
 
-local res, body = http.request("GET", "https://sunc.su/_documentationAPI-preprocess.txt")
+local res, body = http.request("GET", "https://sunc.io/_documentationAPI-preprocess.txt")
 if not (res and res.code == 200 and body) then
     p("FAILED to retrieveAPI homepage!!!")
     os.exit(1)

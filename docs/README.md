@@ -29,10 +29,10 @@ getgenv().sUNCDebug = {
     ["printtesttimetaken"] = false,
 }
 
-loadstring(game:HttpGet("https://script.sunc.su/"))() -- (1)
+loadstring(game:HttpGet("https://script.sunc.io/"))() -- (1)
 ```
 
-1. This loadstring uses [script.sunc.su](https://script.sunc.su/), which is an official mirror of the sUNC script. If the mirror is down or you would like to use the original loadstring, visit [this](https://gitlab.com/sens3/nebunu/-/raw/main/HummingBird8's_sUNC_yes_i_moved_to_gitlab_because_my_github_acc_got_brickedd/sUNCm0m3n7.lua).
+1. This loadstring uses [script.sunc.io](https://script.sunc.io/), which is an official mirror of the sUNC script. If the mirror is down or you would like to use the original loadstring, visit [this](https://gitlab.com/sens3/nebunu/-/raw/main/HummingBird8's_sUNC_yes_i_moved_to_gitlab_because_my_github_acc_got_brickedd/sUNCm0m3n7.lua).
 
 Please note that as of sUNC v2.0, the test now only runs inside of the official testing game. The latest one may be retrieved from [our Discord server](https://discord.gg/FNNfTUpFYv).
 
