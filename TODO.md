@@ -22,7 +22,7 @@ This to-do list is split up into sections with tasks assigned to documentation m
   - where are mouse funcs or isrbxactive etc?
 - Potentially note that debug.getinfo is useless as we have better debug.info (just put this note in debug.getinfo, if you still want to implement getinfo then visit this link etc, but otherwise theyre somewhat similar)
   - "dont really care much about this function, but i think we should add it, since we did add setscriptable"
-- create documentation for `decompile` under SCRIPTS (not reflection!) group, and also every other function mentioned [here](https://github.com/sUNC-Utilities/docs.sunc.su/issues/162)
+- create documentation for `decompile` under SCRIPTS (not reflection!) group, and also every other function mentioned [here](https://github.com/sUNC-Utilities/docs/issues/162)
   - <https://synapsexdocs.github.io/custom-lua-functions/reflection-functions/#decompile>
   - cross off items from same github issue
 - cache library, even though it may seem redundant in the meantime (it will be removed in the future from the next version of sUNC)

@@ -1,9 +1,9 @@
 site_name: sUNC Documentation
 site_url: https://docs.sunc.io
 
-repo_name: sUNC-Utilities/docs.sunc.su
-repo_url: https://github.com/sUNC-Utilities/docs.sunc.su
-edit_uri: https://github.com/sUNC-Utilities/docs.sunc.su/edit/main/docs
+repo_name: sUNC-Utilities/docs
+repo_url: https://github.com/sUNC-Utilities/docs
+edit_uri: https://github.com/sUNC-Utilities/docs/edit/main/docs
 
 plugins:
     - search
@@ -13,7 +13,7 @@ plugins:
           enabled: true
     - git-committers:
           enabled: true
-          repository: sUNC-Utilities/docs.sunc.su
+          repository: sUNC-Utilities/docs
           branch: main
           exclude_committers:
               - web-flow
@@ -116,7 +116,7 @@ extra:
           link: https://numelon.fandom.com/sUNC
 
         - icon: fontawesome/brands/github
-          link: https://github.com/sUNC-Utilities/docs.sunc.su
+          link: https://github.com/sUNC-Utilities/docs
 
         - icon: fontawesome/brands/discord
           link: https://discord.gg/FNNfTUpFYv
