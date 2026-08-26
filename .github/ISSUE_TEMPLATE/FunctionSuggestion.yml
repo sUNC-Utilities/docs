@@ -38,7 +38,7 @@ body:
               - Is it inaccessible or unclear?
 
               If you have not checked yet, please review the documentation:
-              https://docs.sunc.su
+              https://docs.sunc.io
           placeholder: Explain why existing solutions are insufficient...
       validations:
           required: true

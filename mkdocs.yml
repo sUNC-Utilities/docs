@@ -1,5 +1,5 @@
 site_name: sUNC Documentation
-site_url: https://docs.sunc.su
+site_url: https://docs.sunc.io
 
 repo_name: sUNC-Utilities/docs.sunc.su
 repo_url: https://github.com/sUNC-Utilities/docs.sunc.su
@@ -110,7 +110,7 @@ extra:
 
     social:
         - icon: fontawesome/solid/globe
-          link: https://sunc.su/
+          link: https://sunc.io/
 
         - icon: fontawesome/solid/bookmark
           link: https://numelon.fandom.com/sUNC

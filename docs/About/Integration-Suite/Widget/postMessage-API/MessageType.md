@@ -91,7 +91,7 @@ When `#!ts useDarkLogo` is set to `#!ts false`, a light variant is used. This is
 
 **Use this when you have a dark theme.**
 
-![sUNC Full Light Logo](https://sunc.su/sunc-full.png)
+![sUNC Full Light Logo](https://sunc.io/sunc-full.png)
 
 #### `#!ts useDarkLogo: true`
 
@@ -99,7 +99,7 @@ When `#!ts useDarkLogo` is set to `#!ts true`, a dark variant is used. This is p
 
 **Use this when you have a light theme.**
 
-![sUNC Full Light Logo](https://sunc.su/sunc-full-dark.png?useNew)
+![sUNC Full Light Logo](https://sunc.io/sunc-full-dark.png?useNew)
 
 ### Examples
 

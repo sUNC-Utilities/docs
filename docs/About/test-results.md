@@ -14,9 +14,9 @@ We chose to do so, because by having a dedicated server, we're able to provide y
 
 ## Viewing your test results
 
-Once your test is complete, sUNC will generate a short redirect link via `r.sunc.su` like this:
+Once your test is complete, sUNC will generate a short redirect link via `r.sunc.io` like this:
 
-![An `r.sunc.su` redirect link generated](./assets/test-results/r.sunc.su.png)
+![An `r.sunc.io` redirect link generated](./assets/test-results/redirect-link.png)
 
 This generated link redirects to **Numelon Rubiš**:
 
