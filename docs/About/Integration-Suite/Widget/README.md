@@ -18,7 +18,7 @@ This widget is ideal for developers who want to display sUNC results on status w
 
 ![sUNC Widget Example](./assets/widget.gif)
 
-You may view this example preview [here](./example/) or look at the [source code](https://github.com/sUNC-Utilities/docs.sunc.su/edit/main/docs/About/Integration-Suite/Widget/example).
+You may view this example preview [here](./example/) or look at the [source code](https://github.com/sUNC-Utilities/docs/edit/main/docs/About/Integration-Suite/Widget/example).
 
 ---
 
