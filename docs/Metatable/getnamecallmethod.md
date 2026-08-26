@@ -1,12 +1,12 @@
 # `getnamecallmethod`
 
-!!! info "This function must be called from within a `#!luau __namecall` metatable hook, otherwise it will return `#!luau nil`."
+!!! info "This function returns the active `#!luau __namecall` method, whether or not that metamethod is hooked. It returns `#!luau nil` when no namecall method is available."
 
 `#!luau getnamecallmethod` returns the name of the method that invoked the [`#!luau __namecall`](https://devforum.roblox.com/t/how-do-i-get-namecall-method/2848439/5) metamethod.
 
-When used **inside** a [`#!luau hookmetamethod`](../Closures/hookmetamethod.md) hook targeting `#!luau __namecall`, it will attempt to retrieve the method being called (e.g. `#!luau InvokeServer`).
+It retrieves the method being called (e.g. `#!luau InvokeServer`) from the current `#!luau __namecall` invocation. This works both in a normal `#!luau __namecall` metamethod and in a [`#!luau hookmetamethod`](../Closures/hookmetamethod.md) hook targeting `#!luau __namecall`.
 
-When used **outside** of said hook, this function will safely return `#!luau nil`.
+When no namecall method is available, this function will safely return `#!luau nil`.
 
 ```luau
 function getnamecallmethod(): string?
