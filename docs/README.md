@@ -36,6 +36,26 @@ loadstring(game:HttpGet("https://script.sunc.io/"))() -- (1)
 
 Please note that as of sUNC v2.0, the test now only runs inside of the official testing game. The latest one may be retrieved from [our Discord server](https://discord.gg/FNNfTUpFYv).
 
+### Testing specific functions
+
+Use `#!luau functionstotest` to run only selected tests:
+
+```luau
+getgenv().sUNCDebug = {
+    ["functionstotest"] = {
+        ["cloneref"] = true,
+        ["filesys"] = true,
+        ["Drawing.new"] = true,
+    },
+}
+```
+
+Leave `#!luau functionstotest` empty to run the full test suite. When it contains entries, sUNC runs only the selected tests.\
+
+Some functions (e.g. `#!luau cloneref`, the filesystem (`#!luau "filesys"`) or drawing libraries (`#!luau "Drawing.new"`)) select their respective groups instead of individual functions, as their tests depend on related functionality.
+
+Functions that are not selected are shown as untested in the results.
+
 ---
 
 Thank you for being here.
