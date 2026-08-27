@@ -6,7 +6,7 @@
     
     This also includes scripts whose [`#!luau script` global variable](https://create.roblox.com/docs/reference/engine/globals/RobloxGlobals#script) is set to `#!luau nil` or reassigned - i.e. `#!luau getrunningscripts` should still include said scripts.
 
-`#!luau getrunningscripts` returns a list of **all running scripts** in the caller's global state. This includes [`#!luau Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`#!luau LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), and [`#!luau ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) instances - excluding [`#!luau CoreScripts`](https://robloxapi.github.io/ref/class/CoreScript.html) by default.
+`#!luau getrunningscripts` returns a list of **all running scripts** in the caller's global state. This includes [`#!luau Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`#!luau LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), and [`#!luau ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects - excluding [`#!luau CoreScripts`](https://robloxapi.github.io/ref/class/CoreScript.html) by default.
 
 ```luau
 function getrunningscripts(): { BaseScript | ModuleScript }

@@ -2,10 +2,10 @@
 
 !!! warning "Returns only loaded modules"
 
-    This function **only** returns [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) instances that have already been loaded using [`#!luau require`](https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#require).  
+    This function **only** returns [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects that have already been loaded using [`#!luau require`](https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#require).  
     It does **not** return all [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects in the game - for that, use [`#!luau getscripts`](./getscripts.md).
 
-`#!luau getloadedmodules` returns a list of all [`#!luau ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) instances that have been **loaded** (e.g. [`#!luau require`'d](https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#require)).
+`#!luau getloadedmodules` returns a list of all [`#!luau ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects that have been **loaded** (e.g. [`#!luau require`'d](https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#require)).
 
 This includes only modules with completed executions, and **excludes** any modules that errored or haven't been required yet.
 

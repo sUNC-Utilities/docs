@@ -18,9 +18,9 @@ function getscriptclosure(script: BaseScript | ModuleScript): (...any) -> (...an
 
 ## Parameters
 
-| Parameter       | Description                                     |
-| --------------- | ----------------------------------------------- |
-| `#!luau script` | The script instance to convert into a function. |
+| Parameter       | Description                                   |
+| --------------- | --------------------------------------------- |
+| `#!luau script` | The script object to convert into a function. |
 
 ---
 

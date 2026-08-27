@@ -15,9 +15,9 @@ function getscripthash(script: BaseScript | ModuleScript): string | nil
 
 ## Parameters
 
-| Parameter       | Description                                                                                                                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `#!luau script` | The [BaseScript](https://create.roblox.com/docs/reference/engine/classes/BaseScript) or [ModuleScript](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) instance to hash. |
+| Parameter       | Description                                                                                                                                                                                  |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#!luau script` | The [BaseScript](https://create.roblox.com/docs/reference/engine/classes/BaseScript) or [ModuleScript](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) object to hash. |
 
 ---
 
