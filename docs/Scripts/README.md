@@ -12,7 +12,7 @@ With the Scripts library, you can:
 - **Get the bytecode hash** of a script using [`#!luau getscripthash`](./getscripthash.md)
 - **Create a new closure based off of the script's bytecode** using [`#!luau getscriptclosure`](./getscriptclosure.md)
 - **Access script environments** with [`#!luau getsenv`](./getsenv.md)
-- **Enumerate script instances** using [`#!luau getscripts`](./getscripts.md) and [`#!luau getrunningscripts`](./getrunningscripts.md)
+- **Enumerate script objects** using [`#!luau getscripts`](./getscripts.md) and [`#!luau getrunningscripts`](./getrunningscripts.md)
 - **List loaded modules** via [`#!luau getloadedmodules`](./getloadedmodules.md)
 - **Determine the current script** executing via [`#!luau getcallingscript`](./getcallingscript.md)
 - **Resolve the script associated with a thread** using [`#!luau getscriptfromthread`](./getscriptfromthread.md)

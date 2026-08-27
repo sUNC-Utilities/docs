@@ -10,7 +10,7 @@ This library is especially useful when trying to modify or access hidden things 
 
 A [**metatable**](https://create.roblox.com/docs/luau/metatables) in Luau is a hidden table that can change the behavior of another table. Metatables allow you to define custom behaviors like operator overloading, default values, or interception of table reads and writes using special fields like [`#!luau __index`](https://create.roblox.com/docs/luau/metatables#metamethods) or [`#!luau __newindex`](https://create.roblox.com/docs/luau/metatables#metamethods).
 
-In Roblox, this is useful for exposing metatables of Roblox Instances so that they can be leveraged for hooking or other modifications.
+In Roblox, this is useful for exposing metatables of [Objects](https://create.roblox.com/docs/reference/engine/classes/Object) so that they can be leveraged for hooking or other modifications.
 
 ---
 

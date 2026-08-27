@@ -12,9 +12,9 @@ function getscriptbytecode(script: BaseScript | ModuleScript): string | nil
 
 ## Parameters
 
-| Parameter       | Description                                        |
-| --------------- | -------------------------------------------------- |
-| `#!luau script` | The script instance to retrieve the bytecode from. |
+| Parameter       | Description                                      |
+| --------------- | ------------------------------------------------ |
+| `#!luau script` | The script object to retrieve the bytecode from. |
 
 ---
 
