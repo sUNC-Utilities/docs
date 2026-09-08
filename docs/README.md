@@ -50,7 +50,7 @@ getgenv().sUNCDebug = {
 }
 ```
 
-Leave `#!luau functionstotest` empty to run the full test suite. When it contains entries, sUNC runs only the selected tests.\
+Leave `#!luau functionstotest` empty to run the full test suite. When it contains entries, sUNC runs only the selected tests.
 
 Some functions (e.g. `#!luau cloneref`, the filesystem (`#!luau "filesys"`) or drawing libraries (`#!luau "Drawing.new"`)) select their respective groups instead of individual functions, as their tests depend on related functionality.
 
