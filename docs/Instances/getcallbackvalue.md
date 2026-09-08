@@ -1,19 +1,19 @@
 # `getcallbackvalue`
 
-`#!luau getcallbackvalue` retrieves the **assigned callback property** on an [`#!luau Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance), such as [`#!luau OnInvoke`](https://create.roblox.com/docs/reference/engine/classes/BindableFunction#OnInvoke).
+`#!luau getcallbackvalue` retrieves the **assigned callback property** on an [`#!luau Object`](https://create.roblox.com/docs/reference/engine/classes/Object), such as [`#!luau OnInvoke`](https://create.roblox.com/docs/reference/engine/classes/BindableFunction#OnInvoke).
 
 Normally, these properties are **write-only**, meaning you can assign a function to them but cannot read them back. This function bypasses that limitation and exposes the function directly.
 
 ```luau
-function getcallbackvalue(object: Instance, property: string): any | nil
+function getcallbackvalue(object: Object, property: string): any | nil
 ```
 
 ## Parameters
 
-| Parameter         | Description                                                                                                                |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `#!luau object`   | The [`#!luau Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance) that owns the callback property. |
-| `#!luau property` | The name of the callback property to retrieve.                                                                             |
+| Parameter         | Description                                                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `#!luau object`   | The [`#!luau Object`](https://create.roblox.com/docs/reference/engine/classes/Object) that owns the callback property. |
+| `#!luau property` | The name of the callback property to retrieve.                                                                         |
 
 ---
 

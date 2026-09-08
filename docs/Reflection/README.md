@@ -1,6 +1,6 @@
 # Reflection
 
-The **Reflection** library allows access to and manipulation of hidden or non-scriptable properties of [Instances](https://create.roblox.com/docs/reference/engine/classes/Instance) and internal execution context. It is primarily used to bypass standard Luau restrictions in controlled environments.
+The **Reflection** library allows access to and manipulation of hidden or non-scriptable properties of [Objects](https://create.roblox.com/docs/reference/engine/classes/Object) and internal execution context. It is primarily used to bypass standard Luau restrictions in controlled environments.
 
 ---
 
@@ -8,8 +8,8 @@ The **Reflection** library allows access to and manipulation of hidden or non-sc
 
 With the Reflection library, you can:
 
-- **Read** hidden instance properties using [`#!luau gethiddenproperty`](./gethiddenproperty.md)
-- **Write** to hidden instance properties with [`#!luau sethiddenproperty`](./sethiddenproperty.md)
+- **Read** hidden object properties using [`#!luau gethiddenproperty`](./gethiddenproperty.md)
+- **Write** to hidden object properties with [`#!luau sethiddenproperty`](./sethiddenproperty.md)
 - **Toggle and check** scriptability of properties using [`#!luau setscriptable`](./setscriptable.md) and [`#!luau isscriptable`](./isscriptable.md).
 - **Elevate** thread permissions with [`#!luau setthreadidentity`](./setthreadidentity.md)
 - **Query** the current thread's permission level with [`#!luau getthreadidentity`](./getthreadidentity.md)

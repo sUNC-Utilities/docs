@@ -2,7 +2,7 @@
 
 The `#!luau Drawing` class represents a renderable 2D object that appears on the user's screen. Every specific drawing type (e.g. `Circle`, `Text`, `Line`) inherits from this base and extends it with shape-specific properties.
 
-Drawing objects are ***not*** instances - they are client-only graphical primitives that do not interact with the 3D world and must be managed manually.
+Drawing objects are ***not*** instances or engine objects - they are client-only graphical primitives defined by the implementation that do not interact with the 3D world and must be managed manually.
 
 ---
 
@@ -34,7 +34,7 @@ function Drawing.new(type: string): Drawing
 
     ![Definition of the word "Transparency"](./assets/transparency.png)
 
-    In sUNC, we follow the correct meaning of the word. `#!luau Transparency` represents true transparency, where `#!luau 0` means fully opaque and `#!luau 1` means fully **transparent** (see-through). This also aligns with how Roblox handles their transparency property on some instances (e.g. Part, Frame, etc).
+    In sUNC, we follow the correct meaning of the word. `#!luau Transparency` represents true transparency, where `#!luau 0` means fully opaque and `#!luau 1` means fully **transparent** (see-through). This also aligns with how Roblox handles their transparency property on some objects (e.g. Part, Frame, etc).
 
 All drawing object types inherit the following fields:
 

@@ -14,9 +14,9 @@ function getsenv(script: BaseScript | ModuleScript): { [any]: any } | nil
 
 ## Parameters
 
-| Parameter       | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| `#!luau script` | The script instance whose environment should be retrieved. |
+| Parameter       | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `#!luau script` | The script object whose environment should be retrieved. |
 
 ---
 

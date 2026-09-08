@@ -1,6 +1,6 @@
 # `getscripts`
 
-`#!luau getscripts` returns a list of **all [`#!luau Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`#!luau LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), and [`#!luau ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) instances** present.
+`#!luau getscripts` returns a list of **all [`#!luau Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`#!luau LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), and [`#!luau ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects** present.
 
 This function excludes [`#!luau CoreScripts`](https://robloxapi.github.io/ref/class/CoreScript.html) by default.
 
@@ -18,7 +18,7 @@ function getscripts(): { BaseScript | ModuleScript }
 
 ## Example
 
-```luau title="Locating a known script instance" linenums="1"
+```luau title="Locating a known script object" linenums="1"
 local dummy_script = Instance.new("LocalScript")
 dummy_script.Name = "TestScript"
 
