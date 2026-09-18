@@ -7,7 +7,7 @@
 `#!luau hookmetamethod` takes any Luau object that can have a metatable, and attempts to hook the specified metamethod of the object. Internally, it essentially uses [`#!luau hookfunction`](./hookfunction.md) to hook specific metamethods.
 
 ```luau
-function hookmetamethod(object: { [any]: any } | Instance | userdata, metamethodName: string, hook: (...any) -> (...any)): (...any) -> (...any)
+function hookmetamethod(object: { [any]: any } | Object | userdata, metamethodName: string, hook: (...any) -> (...any)): (...any) -> (...any)
 ```
 
 ## Parameters
