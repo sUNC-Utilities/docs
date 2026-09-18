@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HELLO! -->
+<!-- This website was created by the Numelon Bespoke service. -->
+<!-- If you need website design & brand management or hosting like this, contact support@numelon.com or visit https://numelon.com -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>sUNC Metadata API</title>
+    <meta name="description"
+        content="Machine-readable JSON metadata for all sUNC functions, libraries, and parameters." />
+    <meta name="theme-color" content="#b65de9" />
+    <link rel="icon" href="https://sunc.su/sunc.png" type="image/png" />
+
+    <meta name="keywords"
+        content="sUNC, Roblox, executor testing, Luau, unified naming convention, script testing, UNC, function environment, Roblox executor, Luau security, Roblox obfuscation, Roblox exploits, Roblox tools, Roblox utilities, metadata, functions, api">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.sunc.su/">
+    <meta property="og:title" content="sUNC Metadata API">
+    <meta property="og:description"
+        content="Machine-readable JSON metadata for all sUNC functions, libraries, and parameters.">
+    <meta property="og:image" content="https://sunc.su/sunc.png">
+    <meta property="og:image:width" content="3000">
+    <meta property="og:image:height" content="1024">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://docs.sunc.su/">
+    <meta name="twitter:title" content="sUNC Metadata API">
+    <meta name="twitter:description"
+        content="Machine-readable JSON metadata for all sUNC functions, libraries, and parameters.">
+    <meta name="twitter:image" content="https://sunc.su/sunc.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://sunc.su/common.css" rel="stylesheet">
+
+    <!-- this will get replaced upon building -->
+    <!-- Numelon PLSTRK -->
+<script defer data-domain="docs.sunc.io"
+	src="https://plstrk.numelon.com/js/script.file-downloads.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+    <div class="sticky top-0 w-full bg-[#1e1e2f] z-20 flex items-center justify-between px-6 py-4 shadow-lg">
+        <!-- logo left pls -->
+        <div class="flex items-center gap-4">
+            <img src="https://sunc.su/sunc-full.png" alt="sUNC Logo" class="h-6" />
+        </div>
+
+        <!-- right icons thx -->
+        <div class="flex gap-4 text-xl text-white">
+            <a href="https://sunc.su" class="hover:text-[#bd9af4] transition" aria-label="sUNC Website (Home)">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="https://docs.sunc.su" class="hover:text-[#bd9af4] transition" aria-label="Documentation">
+                <i class="fas fa-book"></i>
+            </a>
+            <a href="https://github.com/sUNC-Utilities" class="hover:text-[#bd9af4] transition" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://discord.gg/FNNfTUpFYv" class="hover:text-[#bd9af4] transition" aria-label="Discord">
+                <i class="fa-brands fa-discord"></i>
+            </a>
+        </div>
+    </div>
+
+    <div id="vanta-bg" class="w-full min-h-screen relative">
+        <div id="vanta-overlay"></div>
+
+        <div class="w-full max-w-5xl min-h-screen mx-auto flex flex-col justify-center items-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">sUNC Metadata API</h2>
+            <p class="text-base md:text-lg text-purple-300 mb-8 text-center px-4">
+                The sUNC Metadata API provides machine-friendly JSON data for integrating sUNC function metadata
+                into your projects. Choose between a compact <strong>Mini Version</strong> for lightweight usage or the
+                <strong>Jumbo Version</strong> for complete library and function details.
+            </p>
+
+            <div class="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 w-full max-w-4xl px-4">
+                <div
+                    class="bg-[#1e1e2f] rounded-lg p-5 sm:p-6 shadow-md hover:shadow-lg transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 sm:gap-3 mb-3">
+                            <i class="fas fa-compress text-xl sm:text-2xl text-[#bd9af4]"></i>
+                            <h3 class="text-lg sm:text-xl font-semibold text-white flex items-center gap-2">
+                                Mini
+                                <span
+                                    class="bg-[#2c2c40] text-purple-200 text-[10px] sm:text-xs font-medium px-2 py-0.5 rounded-md">±10KB</span>
+                            </h3>
+                        </div>
+                        <p class="text-purple-300 text-sm sm:text-base mb-4">
+                            A simple function name to description dictionary, perfect for integrating basic metadata
+                            about
+                            sUNC functions into your application.
+                        </p>
+                    </div>
+                    <a href="https://docs.sunc.su/api/mini.json"
+                        class="mt-4 inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-[#2c2c40] hover:bg-[#383857] text-purple-200 rounded-md text-sm font-medium transition">
+                        <i class="fas fa-download"></i>
+                        Access Mini Version
+                    </a>
+                </div>
+
+                <div
+                    class="bg-[#1e1e2f] rounded-lg p-5 sm:p-6 shadow-md hover:shadow-lg transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 sm:gap-3 mb-3">
+                            <i class="fas fa-database text-xl sm:text-2xl text-[#bd9af4]"></i>
+                            <h3 class="text-lg sm:text-xl font-semibold text-white flex items-center gap-2">
+                                Jumbo
+                                <span
+                                    class="bg-[#2c2c40] text-purple-200 text-[10px] sm:text-xs font-medium px-2 py-0.5 rounded-md">±45KB</span>
+                            </h3>
+                        </div>
+                        <p class="text-purple-300 text-sm sm:text-base mb-4">
+                            A fully parsed and beautified dataset including library overviews, function signatures,
+                            parameter types, and links to the official documentation.
+                        </p>
+                    </div>
+                    <a href="https://docs.sunc.su/api/jumbo.json"
+                        class="mt-4 inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-[#2c2c40] hover:bg-[#383857] text-purple-200 rounded-md text-sm font-medium transition">
+                        <i class="fas fa-download"></i>
+                        Access Jumbo Version
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer note -->
+            <div class="mt-8 max-w-md text-center px-4">
+                <p class="text-purple-300 text-xs sm:text-sm">
+                    Both versions are served in <code>application/json</code> format and automatically update alongside
+                    sUNC
+                    documentation.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gradient-to-br from-[#1b1b2a] to-[#12121c] text-white pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
+
+            <!-- left side socials and logo epic -->
+            <div class="md:w-1/4">
+                <img src="https://sunc.su/sunc.png" alt="sUNC Logo" class="h-10 mb-6">
+                <div class="flex space-x-4">
+                    <a href="https://sunc.su" class="text-xl hover:text-[#bd9af4] transition"
+                        aria-label="sUNC Website (Home)">
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <a href="https://docs.sunc.su" class="text-xl hover:text-[#bd9af4] transition"
+                        aria-label="Documentation">
+                        <i class="fas fa-book"></i>
+                    </a>
+                    <a href="https://github.com/sUNC-Utilities" class="text-xl hover:text-[#bd9af4] transition"
+                        aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://discord.gg/FNNfTUpFYv" class="text-xl hover:text-[#bd9af4] transition"
+                        aria-label="Discord">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- right side a bit confusing -->
+            <div class="md:w-3/4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-8 text-sm">
+                <div>
+                    <h4 class="text-purple-300 font-semibold mb-3">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://docs.sunc.su/api" class="hover:text-purple-100">Metadata
+                                API</a></li>
+                        <li><a href="https://docs.sunc.su" class="hover:text-purple-100">Documentation</a></li>
+                        <li><a href="https://github.com/sUNC-Utilities/docs.sunc.su"
+                                class="hover:text-purple-100">Documentation
+                                Source</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-purple-300 font-semibold mb-3">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/sUNC-Utilities" class="hover:text-purple-100">GitHub</a>
+                        </li>
+                        <li><a href="https://discord.gg/FNNfTUpFYv" class="hover:text-purple-100">Discord</a></li>
+                        <li><a href="https://numelon.fandom.com/sUNC" class="hover:text-purple-100">Fandom (Wiki)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-purple-300 font-semibold mb-3">About</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://sunc.su/#features" class="hover:text-purple-100">Features</a></li>
+                        <li><a href="https://sunc.su/#user-interface" class="hover:text-purple-100">Beautiful UI</a>
+                        </li>
+                        <li><a href="https://sunc.su/#improvements" class="hover:text-purple-100">UNC Comparison</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 pt-6 text-center text-sm text-purple-400">
+            Website designed by <a href="https://numelon.com" class="underline hover:text-purple-200">Numelon
+                Bespoke</a>.
+        </div>
+
+        <!-- BIG JUICY SUNC -->
+        <div class="mt-10">
+            <img src="https://sunc.su/sunc-full.png" alt="sUNC Footer Banner" class="w-full opacity-10 object-contain">
+        </div>
+    </footer>
+
+    <script>
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            minHeight: 200.0,
+            minWidth: 200.0,
+            scale: 1.0,
+            scaleMobile: 1.0,
+            color: 0xbd9af4,
+            backgroundColor: 0x121212,
+        });
+    </script>
+</body>
+
+</html>

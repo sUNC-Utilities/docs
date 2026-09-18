@@ -1,0 +1,781 @@
+{
+  "Scripts":{
+    "_description":"The **Scripts** library provides advanced functions for inspecting and interacting with script objects. It allows you to analyse bytecode, retrieve closures and environments, and simulate the loading or running of scripts.",
+    "_link":"https://docs.sunc.io/Scripts",
+    "getcallingscript":{
+      "parameters":[],
+      "title":"getcallingscript",
+      "description":"`getcallingscript` returns the [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), or [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) that **triggered the current code execution**.",
+      "link":"https://docs.sunc.io/Scripts/getcallingscript",
+      "signature":"function getcallingscript(): BaseScript | ModuleScript | nil"
+    },
+    "getloadedmodules":{
+      "parameters":[],
+      "title":"getloadedmodules",
+      "description":"`getloadedmodules` returns a list of all [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects that have been **loaded** (e.g. [`require`'d](https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#require)).",
+      "link":"https://docs.sunc.io/Scripts/getloadedmodules",
+      "signature":"function getloadedmodules(): { ModuleScript }"
+    },
+    "getrunningscripts":{
+      "parameters":[],
+      "title":"getrunningscripts",
+      "description":"`getrunningscripts` returns a list of **all running scripts** in the caller's global state. This includes [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), and [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects - excluding [`CoreScripts`](https://robloxapi.github.io/ref/class/CoreScript.html) by default.",
+      "link":"https://docs.sunc.io/Scripts/getrunningscripts",
+      "signature":"function getrunningscripts(): { BaseScript | ModuleScript }"
+    },
+    "getscripthash":{
+      "parameters":{
+        "script":"The [BaseScript](https://create.roblox.com/docs/reference/engine/classes/BaseScript) or [ModuleScript](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) object to hash."
+      },
+      "title":"getscripthash",
+      "description":"`getscripthash` returns a [SHA-384 hash](https://en.wikipedia.org/wiki/SHA-3) in ***hexadecimal format*** of the raw bytecode for a given [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), or [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript).",
+      "link":"https://docs.sunc.io/Scripts/getscripthash",
+      "signature":"function getscripthash(script: BaseScript | ModuleScript): string | nil"
+    },
+    "getscriptbytecode":{
+      "parameters":{
+        "script":"The script object to retrieve the bytecode from."
+      },
+      "title":"getscriptbytecode",
+      "description":"`getscriptbytecode` retrieves the bytecode of a [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript), and [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script).",
+      "link":"https://docs.sunc.io/Scripts/getscriptbytecode",
+      "signature":"function getscriptbytecode(script: BaseScript | ModuleScript): string | nil"
+    },
+    "getscriptclosure":{
+      "parameters":{
+        "script":"The script object to convert into a function."
+      },
+      "title":"getscriptclosure",
+      "description":"`getscriptclosure` creates and returns a Luau **function closure** from the compiled bytecode of a [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), or [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript).",
+      "link":"https://docs.sunc.io/Scripts/getscriptclosure",
+      "signature":"function getscriptclosure(script: BaseScript | ModuleScript): (...any) -> (...any) | nil"
+    },
+    "getscriptfromthread":{
+      "parameters":{
+        "thread":"The Luau thread whose associated script should be retrieved."
+      },
+      "title":"getscriptfromthread",
+      "description":"`getscriptfromthread` returns the [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), or [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) associated with a given [Luau thread](https://create.roblox.com/docs/reference/engine/libraries/coroutine#running).",
+      "link":"https://docs.sunc.io/Scripts/getscriptfromthread",
+      "signature":"function getscriptfromthread(thread: thread): BaseScript | ModuleScript | nil"
+    },
+    "getscripts":{
+      "parameters":[],
+      "title":"getscripts",
+      "description":"`getscripts` returns a list of **all [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), and [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript) objects** present.",
+      "link":"https://docs.sunc.io/Scripts/getscripts",
+      "signature":"function getscripts(): { BaseScript | ModuleScript }"
+    },
+    "getsenv":{
+      "parameters":{
+        "script":"The script object whose environment should be retrieved."
+      },
+      "title":"getsenv",
+      "description":"`getsenv` returns the **global environment table** of a given [`Script`](https://create.roblox.com/docs/reference/engine/classes/Script), [`LocalScript`](https://create.roblox.com/docs/reference/engine/classes/LocalScript), or [`ModuleScript`](https://create.roblox.com/docs/reference/engine/classes/ModuleScript).",
+      "link":"https://docs.sunc.io/Scripts/getsenv",
+      "signature":"function getsenv(script: BaseScript | ModuleScript): { [any]: any } | nil"
+    }
+  },
+  "Metatable":{
+    "_description":"The **Metatable** library enables advanced interaction with [metatables](https://create.roblox.com/docs/luau/metatables) in Luau. It provides direct access to core metamethods and internal table behaviours - including those normally protected or hidden via `__metatable` locks.\nThis library is especially useful when trying to modify or access hidden things within locked Roblox objects.",
+    "_link":"https://docs.sunc.io/Metatable",
+    "getrawmetatable":{
+      "parameters":{
+        "object":"The object whose metatable to retrieve."
+      },
+      "title":"getrawmetatable",
+      "description":"`getrawmetatable` returns the raw metatable of an object, even if that object has a `__metatable` field set.",
+      "link":"https://docs.sunc.io/Metatable/getrawmetatable",
+      "signature":"function getrawmetatable(object: { any } | userdata): { [any]: any } | nil"
+    },
+    "isreadonly":{
+      "parameters":{
+        "table":"The table to check for readonly status."
+      },
+      "title":"isreadonly",
+      "description":"`isreadonly` checks whether a table is currently set as **readonly**.",
+      "link":"https://docs.sunc.io/Metatable/isreadonly",
+      "signature":"function isreadonly(table: { any }): boolean"
+    },
+    "getnamecallmethod":{
+      "parameters":[],
+      "title":"getnamecallmethod",
+      "description":"`getnamecallmethod` returns the name of the method that invoked the [`__namecall`](https://devforum.roblox.com/t/how-do-i-get-namecall-method/2848439/5) metamethod.",
+      "link":"https://docs.sunc.io/Metatable/getnamecallmethod",
+      "signature":"function getnamecallmethod(): string?"
+    },
+    "setrawmetatable":{
+      "parameters":{
+        "object":"The value whose metatable will be overwritten.",
+        "metatable":"The new metatable to assign."
+      },
+      "title":"setrawmetatable",
+      "description":"`setrawmetatable` forcibly sets the metatable of a value, bypassing the `__metatable` protection field.",
+      "link":"https://docs.sunc.io/Metatable/setrawmetatable",
+      "signature":"function setrawmetatable<T>(object: T & ({ any } | userdata), metatable: { any }): T"
+    },
+    "setreadonly":{
+      "parameters":{
+        "table":"The table whose readonly status you want to modify.",
+        "state":"`true` to lock the table, `false` to unlock it."
+      },
+      "title":"setreadonly",
+      "description":"`setreadonly` sets whether a table is **readonly** or **writable**.",
+      "link":"https://docs.sunc.io/Metatable/setreadonly",
+      "signature":"function setreadonly(table: { any }, state: boolean): ()"
+    }
+  },
+  "Environment":{
+    "getrenv":{
+      "parameters":[],
+      "title":"getrenv",
+      "description":"`getrenv` returns the **Roblox global environment**, which is used by the entire game. Changes to this environment will affect your executor environment as well.",
+      "link":"https://docs.sunc.io/Environment/getrenv",
+      "signature":"function getrenv(): { any }"
+    },
+    "_description":"The **Environment** library allows access and inspection to our and Roblox's environment.",
+    "_link":"https://docs.sunc.io/Environment",
+    "getgc":{
+      "parameters":{
+        "includeTables?":"If `true`, also includes tables in the returned list. Defaults to `false`."
+      },
+      "title":"getgc",
+      "description":"`getgc` returns a list of **non-dead garbage-collectable values**. These include functions, userdatas, and optionally tables.",
+      "link":"https://docs.sunc.io/Environment/getgc",
+      "signature":"export type AnyFunction = (...any) -> (...any)\nexport type AnyTable = { [any]: any }\nexport type userdata = typeof(newproxy()) -- (1)\ndeclare getgc:\n    ((includeTables: true) -> { AnyTable | AnyFunction | userdata }) &\n    ((includeTables: false?) -> { AnyFunction | userdata })"
+    },
+    "getgenv":{
+      "parameters":[],
+      "title":"getgenv",
+      "description":"`getgenv` returns the **executor's global environment table**, which is shared across all executor-made threads.",
+      "link":"https://docs.sunc.io/Environment/getgenv",
+      "signature":"function getgenv(): { any }"
+    },
+    "filtergc":{
+      "parameters":{
+        "filterType":"The type of value to search for.",
+        "returnOne?":"If `true`, returns the first match, instead of a table of matches.",
+        "filterOptions":"A set of rules used to match functions or tables. [See below.](#filter-option-types)"
+      },
+      "title":"filtergc",
+      "description":"`filtergc` allows you to retrieve specific garbage-collected values from Luau's memory, using fine-tuned filters.",
+      "link":"https://docs.sunc.io/Environment/filtergc",
+      "signature":"export type AnyFunction = (...any) -> (...any)\nexport type AnyTable = { [any]: any }\ndeclare filtergc: \n    (( filterType: \"function\", filterOptions: FunctionFilterOptions, returnOne: true) -> AnyFunction? ) &\n    ((( filterType: \"function\", filterOptions: FunctionFilterOptions, returnOne: false?) -> ( AnyFunction | { AnyFunction } ) )) &\n    (( filterType: \"table\", filterOptions: TableFilterOptions, returnOne: true) -> { AnyTable? } ) &\n    (( filterType: \"table\", filterOptions: TableFilterOptions, returnOne: false? ) -> { AnyTable })"
+    },
+    "getreg":{
+      "parameters":[],
+      "title":"getreg",
+      "description":"`getreg` returns the **Luau registry table**. The registry is a special table which is used internally to store references like threads, functions, and data shared between C and Luau (userdata).",
+      "link":"https://docs.sunc.io/Environment/getreg",
+      "signature":"function getreg(): { [any]: any }"
+    }
+  },
+  "WebSocket":{
+    "_link":"https://docs.sunc.io/WebSocket",
+    "_description":"The `WebSocket` class provides a lightweight interface for establishing and working with WebSocket connections. It allows scripts to **send** and **receive** messages over a persistent connection to a [WebSocket](https://en.wikipedia.org/wiki/WebSocket) server."
+  },
+  "Drawing":{
+    "cleardrawcache":{
+      "parameters":[],
+      "title":"cleardrawcache",
+      "description":"`cleardrawcache` removes **all active drawing objects** created with [`Drawing.new`](https://docs.sunc.io/Drawing/#constructor).",
+      "link":"https://docs.sunc.io/Drawing/cleardrawcache",
+      "signature":"function cleardrawcache(): ()"
+    },
+    "_description":"The `Drawing` class represents a renderable 2D object that appears on the user's screen. Every specific drawing type (e.g. `Circle`, `Text`, `Line`) inherits from this base and extends it with shape-specific properties.\nDrawing objects are ***not*** instances or engine objects - they are client-only graphical primitives defined by the implementation that do not interact with the 3D world and must be managed manually.",
+    "_link":"https://docs.sunc.io/Drawing",
+    "getrenderproperty":{
+      "parameters":{
+        "drawing":"A valid [`Drawing`](https://docs.sunc.io/Drawing/) object.",
+        "property":"The name of the property to retrieve."
+      },
+      "title":"getrenderproperty",
+      "description":"`getrenderproperty` retrieves the value of a property from a [`Drawing`](https://docs.sunc.io/Drawing/) object. This behaves identically to using `object[property]`, but is useful when working with dynamic property names or for reflection-like access.",
+      "link":"https://docs.sunc.io/Drawing/getrenderproperty",
+      "signature":"function getrenderproperty(drawing: Drawing, property: string): any"
+    },
+    "isrenderobj":{
+      "parameters":{
+        "object":"The value to check for Drawing validity."
+      },
+      "title":"isrenderobj",
+      "description":"`isrenderobj` checks whether a given value is a valid [`Drawing`](https://docs.sunc.io/Drawing/) object.",
+      "link":"https://docs.sunc.io/Drawing/isrenderobj",
+      "signature":"function isrenderobj(object: any): boolean"
+    },
+    "setrenderproperty":{
+      "parameters":{
+        "drawing":"A valid [`Drawing`](https://docs.sunc.io/Drawing/) object.",
+        "property":"The name of the property to assign.",
+        "value":"The value to assign to the specified property."
+      },
+      "title":"setrenderproperty",
+      "description":"`setrenderproperty` assigns a value to a property of a [`Drawing`](https://docs.sunc.io/Drawing/) object. This behaves identically to `object[property] = value`, but is useful for dynamic or abstracted property access.",
+      "link":"https://docs.sunc.io/Drawing/setrenderproperty",
+      "signature":"function setrenderproperty(drawing: Drawing, property: string, value: any): ()"
+    }
+  },
+  "Filesystem":{
+    "readfile":{
+      "parameters":{
+        "path":"The file path to read from."
+      },
+      "title":"readfile",
+      "description":"`readfile` retrieves the contents of a file at the specified path and returns it as a string.",
+      "link":"https://docs.sunc.io/Filesystem/readfile",
+      "signature":"function readfile(path: string): string"
+    },
+    "_description":"The **Filesystem** library provides access to an executor's virtual file system. It enables reading, writing, creating, and deleting files and folders, as well as utility functions for interacting with content assets.\nThis library is especially useful when storing persistent data, managing resources across sessions, or loading runtime content dynamically.",
+    "_link":"https://docs.sunc.io/Filesystem",
+    "isfolder":{
+      "parameters":{
+        "path":"The path to check."
+      },
+      "title":"isfolder",
+      "description":"`isfolder` checks whether a given path exists and refers to a folder.",
+      "link":"https://docs.sunc.io/Filesystem/isfolder",
+      "signature":"function isfolder(path: string): boolean"
+    },
+    "writefile":{
+      "parameters":{
+        "data":"The string data to write into the file.",
+        "path":"The file path to write to."
+      },
+      "title":"writefile",
+      "description":"`writefile` writes data to a file at the specified path. If the file already exists, its contents will be overwritten.",
+      "link":"https://docs.sunc.io/Filesystem/writefile",
+      "signature":"function writefile(path: string, data: string): ()"
+    },
+    "listfiles":{
+      "parameters":{
+        "path":"The path to the directory to scan."
+      },
+      "title":"listfiles",
+      "description":"`listfiles` returns an array of strings representing all files and folders within the specified directory.",
+      "link":"https://docs.sunc.io/Filesystem/listfiles",
+      "signature":"function listfiles(path: string): { string }"
+    },
+    "delfolder":{
+      "parameters":{
+        "path":"The path of the folder to delete."
+      },
+      "title":"delfolder",
+      "description":"`delfolder` deletes the folder at the specified path if it exists.",
+      "link":"https://docs.sunc.io/Filesystem/delfolder",
+      "signature":"function delfolder(path: string): ()"
+    },
+    "delfile":{
+      "parameters":{
+        "path":"The path of the file to delete."
+      },
+      "title":"delfile",
+      "description":"`delfile` deletes the file at the specified path if it exists.",
+      "link":"https://docs.sunc.io/Filesystem/delfile",
+      "signature":"function delfile(path: string): ()"
+    },
+    "loadfile":{
+      "parameters":{
+        "path":"The path to the file to be loaded."
+      },
+      "title":"loadfile",
+      "description":"`loadfile` compiles the Luau source code from a file and returns the resulting function (chunk). This chunk runs in the global environment.",
+      "link":"https://docs.sunc.io/Filesystem/loadfile",
+      "signature":"function loadfile<A...>(path: string): ((A...) -> any | nil, string?)"
+    },
+    "appendfile":{
+      "parameters":{
+        "contents":"The string content to add to the file.",
+        "path":"The file path to append to."
+      },
+      "title":"appendfile",
+      "description":"`appendfile` appends string content to the end of a file at the specified path. If the file does not exist, it will be created.",
+      "link":"https://docs.sunc.io/Filesystem/appendfile",
+      "signature":"function appendfile(path: string, contents: string): ()"
+    },
+    "getcustomasset":{
+      "parameters":{
+        "path":"The file path to convert into an asset ID."
+      },
+      "title":"getcustomasset",
+      "description":"`getcustomasset` returns a content ID (e.g. `rbxasset://`) that can be used in Roblox APIs for loading audio, meshes, UI images, and other asset types.",
+      "link":"https://docs.sunc.io/Filesystem/getcustomasset",
+      "signature":"function getcustomasset(path: string): string"
+    },
+    "isfile":{
+      "parameters":{
+        "path":"The path to check."
+      },
+      "title":"isfile",
+      "description":"`isfile` checks whether a given path exists and refers to a file.",
+      "link":"https://docs.sunc.io/Filesystem/isfile",
+      "signature":"function isfile(path: string): boolean"
+    },
+    "makefolder":{
+      "parameters":{
+        "path":"The folder path to create."
+      },
+      "title":"makefolder",
+      "description":"`makefolder` creates a folder at the specified path if one does not already exist.",
+      "link":"https://docs.sunc.io/Filesystem/makefolder",
+      "signature":"function makefolder(path: string): ()"
+    }
+  },
+  "Instances":{
+    "_description":"The **Instances** library provides direct access to and manipulation of [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance) objects in the game world. It includes tools for listing, referencing, and firing Roblox-native interactions.\nThese functions are especially useful for inspecting hidden instances, working with UI safely, or simulating player interactions with in-game objects.",
+    "_link":"https://docs.sunc.io/Instances",
+    "getcallbackvalue":{
+      "parameters":{
+        "object":"The [`Object`](https://create.roblox.com/docs/reference/engine/classes/Object) that owns the callback property.",
+        "property":"The name of the callback property to retrieve."
+      },
+      "title":"getcallbackvalue",
+      "description":"`getcallbackvalue` retrieves the **assigned callback property** on an [`Object`](https://create.roblox.com/docs/reference/engine/classes/Object), such as [`OnInvoke`](https://create.roblox.com/docs/reference/engine/classes/BindableFunction#OnInvoke).",
+      "link":"https://docs.sunc.io/Instances/getcallbackvalue",
+      "signature":"function getcallbackvalue(object: Object, property: string): any | nil"
+    },
+    "fireclickdetector":{
+      "parameters":{
+        "detector":"The [`ClickDetector`](https://create.roblox.com/docs/reference/engine/classes/ClickDetector) to trigger.",
+        "distance?":"Distance from which the click is simulated. Defaults to infinite.",
+        "event?":"The event to trigger."
+      },
+      "title":"fireclickdetector",
+      "description":"`fireclickdetector` triggers a [`ClickDetector`](https://create.roblox.com/docs/reference/engine/classes/ClickDetector) event. By default, it fires the [`MouseClick`](https://create.roblox.com/docs/reference/engine/classes/ClickDetector#MouseClick) event.",
+      "link":"https://docs.sunc.io/Instances/fireclickdetector",
+      "signature":"function fireclickdetector(detector: ClickDetector, distance: number?, event: string?): ()"
+    },
+    "firetouchinterest":{
+      "parameters":{
+        "part1":"The initiating [`BasePart`](https://create.roblox.com/docs/reference/engine/classes/BasePart).",
+        "part2":"The [`BasePart`](https://create.roblox.com/docs/reference/engine/classes/BasePart) that should be touched.",
+        "toggle":"Whether to simulate touch start or end. `true` or `0` simulates touch; `false` or `1` simulates un-touch."
+      },
+      "title":"firetouchinterest",
+      "description":"`firetouchinterest` simulates a physical touch event between two [`BasePart`](https://create.roblox.com/docs/reference/engine/classes/BasePart) objects. It can emulate both the start and end of a [`Touched`](https://create.roblox.com/docs/reference/engine/classes/BasePart#Touched) event.",
+      "link":"https://docs.sunc.io/Instances/firetouchinterest",
+      "signature":"function firetouchinterest(part1: BasePart, part2: BasePart, toggle: boolean | number): ()"
+    },
+    "compareinstances":{
+      "parameters":{
+        "object2":"The second [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance) to compare against.",
+        "object1":"This first [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance) to compare."
+      },
+      "title":"compareinstances",
+      "description":"`compareinstances` checks if two [`Instances`](https://create.roblox.com/docs/reference/engine/classes/Instance) are equal.",
+      "link":"https://docs.sunc.io/Instances/compareinstances",
+      "signature":"function compareinstances(object1: Instance, object2: Instance): boolean"
+    },
+    "fireproximityprompt":{
+      "parameters":{
+        "prompt":"The [`ProximityPrompt`](https://create.roblox.com/docs/reference/engine/classes/ProximityPrompt) to trigger."
+      },
+      "title":"fireproximityprompt",
+      "description":"`fireproximityprompt` instantly triggers a [`ProximityPrompt`](https://create.roblox.com/docs/reference/engine/classes/ProximityPrompt), bypassing its [`HoldDuration`](https://create.roblox.com/docs/reference/engine/classes/ProximityPrompt#HoldDuration) and activation distance.",
+      "link":"https://docs.sunc.io/Instances/fireproximityprompt",
+      "signature":"function fireproximityprompt(prompt: ProximityPrompt): ()"
+    },
+    "cloneref":{
+      "parameters":{
+        "object":"The [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance) to clone a safe reference from."
+      },
+      "title":"cloneref",
+      "description":"`cloneref` returns a **reference clone** of an [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance). The returned object behaves identically to the original but is not strictly equal (`==`) to it.",
+      "link":"https://docs.sunc.io/Instances/cloneref",
+      "signature":"function cloneref<T>(object: T & Instance): T"
+    },
+    "gethui":{
+      "parameters":[],
+      "title":"gethui",
+      "description":"`gethui` returns a **hidden [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance)** container used for safely storing UI elements. This container is mainly designed to **avoid detections**.",
+      "link":"https://docs.sunc.io/Instances/gethui",
+      "signature":"function gethui(): BasePlayerGui | Folder"
+    },
+    "getinstances":{
+      "parameters":[],
+      "title":"getinstances",
+      "description":"`getinstances` retrieves **every [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance)** from the registry. Which means that instances that are/were parented to `nil` will also be returned.",
+      "link":"https://docs.sunc.io/Instances/getinstances",
+      "signature":"function getinstances(): { Instance }"
+    },
+    "getnilinstances":{
+      "parameters":[],
+      "title":"getnilinstances",
+      "description":"`getnilinstances` returns a list of [`Instance`](https://create.roblox.com/docs/reference/engine/classes/Instance) objects that are **currently unparented**. These instances exist in memory but are no longer part of the [`DataModel`](https://create.roblox.com/docs/reference/engine/classes/DataModel) hierarchy.",
+      "link":"https://docs.sunc.io/Instances/getnilinstances",
+      "signature":"function getnilinstances(): { Instance }"
+    }
+  },
+  "Debug":{
+    "debug.setconstant":{
+      "parameters":{
+        "index":"The position of the constant to change.",
+        "func":"The Luau function (or stack level) whose constant to modify.",
+        "value":"The new constant value to set."
+      },
+      "title":"debug.setconstant",
+      "description":"`debug.setconstant` modifies a constant at the specified index in a Luau function bytecode.",
+      "link":"https://docs.sunc.io/Debug/setconstant",
+      "signature":"function debug.setconstant(func: (...any) -> (...any) | number, index: number, value: number | string | boolean | nil): ()"
+    },
+    "_link":"https://docs.sunc.io/Debug",
+    "debug.getconstant":{
+      "parameters":{
+        "func":"The Luau function (or stack level) whose constant to retrieve.",
+        "index":"The position of the desired constant."
+      },
+      "title":"debug.getconstant",
+      "description":"`debug.getconstant` returns the constant at the specified index from a Luau function. If no constant exists at that index, it returns `nil` instead.",
+      "link":"https://docs.sunc.io/Debug/getconstant",
+      "signature":"function debug.getconstant(func: (...any) -> (...any) | number, index: number): number | string | boolean | nil"
+    },
+    "debug.getprotos":{
+      "parameters":{
+        "func":"The Luau function (or stack level) to extract protos from."
+      },
+      "title":"debug.getprotos",
+      "description":"`debug.getprotos` returns all function prototypes defined within the specified Luau function.",
+      "link":"https://docs.sunc.io/Debug/getprotos",
+      "signature":"function debug.getprotos(func: (...any) -> (...any) | number): { (...any) -> (...any) }"
+    },
+    "debug.getupvalue":{
+      "parameters":{
+        "func":"The Luau function (or stack level) to retrieve an upvalue from.",
+        "index":"The position of the upvalue."
+      },
+      "title":"debug.getupvalue",
+      "description":"`debug.getupvalue` returns the upvalue at the specified index from a Luau function's closure. If the index is invalid or out of bounds, an error will occur.",
+      "link":"https://docs.sunc.io/Debug/getupvalue",
+      "signature":"function debug.getupvalue(func: (...any) -> (...any) | number, index: number): any"
+    },
+    "debug.setstack":{
+      "parameters":{
+        "index":"The index/slot in the stack frame to replace.",
+        "value":"The new value to assign at that stack slot.",
+        "level":"The stack level to target. `1` refers to the current function."
+      },
+      "title":"debug.setstack",
+      "description":"`debug.setstack` replaces a value in a specified stack frame.",
+      "link":"https://docs.sunc.io/Debug/setstack",
+      "signature":"function debug.setstack(level: number, index: number, value: any): ()"
+    },
+    "debug.getupvalues":{
+      "parameters":{
+        "func":"The Luau function (or stack level) to retrieve upvalues from."
+      },
+      "title":"debug.getupvalues",
+      "description":"`debug.getupvalues` returns a list of upvalues captured by a Luau function. These are the external variables that a function closes over from its surrounding scope.",
+      "link":"https://docs.sunc.io/Debug/getupvalues",
+      "signature":"function debug.getupvalues(func: (...any) -> (...any) | number): { any }"
+    },
+    "debug.getconstants":{
+      "parameters":{
+        "func":"The Luau function (or stack level) whose constants will be returned."
+      },
+      "title":"debug.getconstants",
+      "description":"`debug.getconstants` returns a list of all constants used within a Luau function's bytecode. This includes literal values like numbers, strings, booleans, and `nil`.",
+      "link":"https://docs.sunc.io/Debug/getconstants",
+      "signature":"function debug.getconstants(func: (...any) -> (...any) | number): { number | string | boolean | nil }"
+    },
+    "debug.setupvalue":{
+      "parameters":{
+        "index":"The index of the upvalue to be replaced.",
+        "func":"The function (or stack level) whose upvalue to replace.",
+        "value":"The new value to assign to the upvalue."
+      },
+      "title":"debug.setupvalue",
+      "description":"`debug.setupvalue` replaces an upvalue at the specified index in a Luau function, with a new value.",
+      "link":"https://docs.sunc.io/Debug/setupvalue",
+      "signature":"function debug.setupvalue(func: (...any) -> (...any) | number, index: number, value: any): ()"
+    },
+    "debug.getproto":{
+      "parameters":{
+        "index":"The index of the prototype to return.",
+        "func":"The Luau function (or stack level) to extract a proto from.",
+        "activated?":"If `true`, returns a table of currently active functions based on the proto."
+      },
+      "title":"debug.getproto",
+      "description":"`debug.getproto` returns a specific function prototype from a Luau function by index. Optionally, it can search for **active functions** of the proto, if the `activated` parameter is set to `true`.",
+      "link":"https://docs.sunc.io/Debug/getproto",
+      "signature":"function debug.getproto(func: (...any) -> (...any) | number, index: number, activated: boolean?): (...any) -> (...any) | { (...any) -> (...any) }"
+    },
+    "debug.getstack":{
+      "parameters":{
+        "index?":"The specific slot/index at that stack level to read.",
+        "level":"The stack level to inspect. `1` is the current function."
+      },
+      "title":"debug.getstack",
+      "description":"`debug.getstack` retrieves values from the stack at the specified call level.",
+      "link":"https://docs.sunc.io/Debug/getstack",
+      "signature":"function debug.getstack(level: number, index: number?): any | { any }"
+    },
+    "_description":"The **Debug** library offers powerful tools for inspecting and modifying Luau functions at a bytecode level.\nIt allows you to access constants, upvalues, stack frames, and internal structures of functions that would otherwise be hidden - making it especially useful for reverse engineering and hooking."
+  },
+  "Closures":{
+    "_description":"The **Closures** library enables the inspection, modification and creation of Luau closures with precise control.\nIt is one of the most powerful tools available, exposing internals in a way that Luau does not natively support out of the box.\nThis library is incredibly useful for hooking functions to modify game logic to your own advantage, and any other creative uses you can think of.",
+    "_link":"https://docs.sunc.io/Closures",
+    "newcclosure":{
+      "parameters":{
+        "functionToWrap":"A function to be wrapped."
+      },
+      "title":"newcclosure",
+      "description":"`newcclosure` takes any Luau function and wraps it into a C closure.",
+      "link":"https://docs.sunc.io/Closures/newcclosure",
+      "signature":"function newcclosure<A..., R...>(functionToWrap: (A...) -> R...): (A...) -> R..."
+    },
+    "iscclosure":{
+      "parameters":{
+        "func":"The function to check."
+      },
+      "title":"iscclosure",
+      "description":"`iscclosure` checks whether a given function is a C closure or not.",
+      "link":"https://docs.sunc.io/Closures/iscclosure",
+      "signature":"function iscclosure(func: (...any) -> (...any)): boolean"
+    },
+    "hookmetamethod":{
+      "parameters":{
+        "object":"The object which has a metatable.",
+        "metamethodName":"The name of the metamethod to hook.",
+        "hook":"The function that will be used as a hook."
+      },
+      "title":"hookmetamethod",
+      "description":"`hookmetamethod` takes any Luau object that can have a metatable, and attempts to hook the specified metamethod of the object. Internally, it essentially uses [`hookfunction`](https://docs.sunc.io/Closures/hookfunction) to hook specific metamethods.",
+      "link":"https://docs.sunc.io/Closures/hookmetamethod",
+      "signature":"function hookmetamethod(object: { [any]: any } | Object | userdata, metamethodName: string, hook: (...any) -> (...any)): (...any) -> (...any)"
+    },
+    "restorefunction":{
+      "parameters":{
+        "functionToRestore":"The hooked function that you want to restore"
+      },
+      "title":"restorefunction",
+      "description":"`restorefunction` restores a hooked function back to the very first original function, even if it has been hooked multiple times.",
+      "link":"https://docs.sunc.io/Closures/restorefunction",
+      "signature":"function restorefunction(functionToRestore: (...any) -> (...any)): ()"
+    },
+    "isexecutorclosure":{
+      "parameters":{
+        "func":"The function to check."
+      },
+      "title":"isexecutorclosure",
+      "description":"`isexecutorclosure` checks whether a given function is a closure of the executor. This also includes closures retrieved using [`getscriptclosure`](https://docs.sunc.io/Scripts/getloadedmodules) or [`loadstring`](https://docs.sunc.io/Closures/loadstring).",
+      "link":"https://docs.sunc.io/Closures/isexecutorclosure",
+      "signature":"function isexecutorclosure(func: (...any) -> (...any)): boolean"
+    },
+    "clonefunction":{
+      "parameters":{
+        "functionToClone":"The function to clone."
+      },
+      "title":"clonefunction",
+      "description":"`clonefunction` creates and returns a new function that has the exact same behaviour as the passed function.",
+      "link":"https://docs.sunc.io/Closures/clonefunction",
+      "signature":"function clonefunction<A..., R...>(functionToClone: (A...) -> R...): (A...) -> R..."
+    },
+    "loadstring":{
+      "parameters":{
+        "source":"The source code string to compile.",
+        "chunkname?":"Custom chunk name."
+      },
+      "title":"loadstring",
+      "description":"`loadstring` compiles a string of Luau code and returns it as a runnable function. If the code has errors, two things are returned: `nil` and a `string`, which is the error message.",
+      "link":"https://docs.sunc.io/Closures/loadstring",
+      "signature":"function loadstring<A...>(source: string, chunkname: string?): (((A...) -> any) | nil, string?)"
+    },
+    "hookfunction":{
+      "parameters":{
+        "functionToHook":"The function that will be hooked",
+        "hook":"The function that will be used as a hook"
+      },
+      "title":"hookfunction",
+      "description":"`hookfunction` allows you to hook a function with another wanted function, returning the original unhooked function.",
+      "link":"https://docs.sunc.io/Closures/hookfunction",
+      "signature":"function hookfunction<A1..., R1..., A2..., R2...>(functionToHook: (A1...) -> R1..., hook: (A2...) -> R2...): (A1...) -> R1..."
+    },
+    "islclosure":{
+      "parameters":{
+        "func":"The function to check."
+      },
+      "title":"islclosure",
+      "description":"`islclosure` checks whether a given function is a Luau closure or not.",
+      "link":"https://docs.sunc.io/Closures/islclosure",
+      "signature":"function islclosure(func: (...any) -> (...any)): boolean"
+    },
+    "getfunctionhash":{
+      "parameters":{
+        "functionToHash":"The function to retrieve the hash of."
+      },
+      "title":"getfunctionhash",
+      "description":"`getfunctionhash` returns the ***hex-represented*** [SHA384 hash](https://en.wikipedia.org/wiki/SHA-2) of a provided function's instructions (code) and constants.",
+      "link":"https://docs.sunc.io/Closures/getfunctionhash",
+      "signature":"function getfunctionhash(functionToHash: (...any) -> (...any)): string"
+    },
+    "checkcaller":{
+      "parameters":[],
+      "title":"checkcaller",
+      "description":"`checkcaller` returns a boolean indicating whether the **current function was invoked from the executor's own thread**. This is useful for differentiating between your own calls and those made by the game.",
+      "link":"https://docs.sunc.io/Closures/checkcaller",
+      "signature":"function checkcaller(): boolean"
+    }
+  },
+  "Reflection":{
+    "gethiddenproperty":{
+      "parameters":{
+        "object":"The [Object](https://create.roblox.com/docs/reference/engine/classes/Object) containing the hidden property.",
+        "property_name":"The name of the property to access."
+      },
+      "title":"gethiddenproperty",
+      "description":"`gethiddenproperty` retrieves the value of a hidden or non-scriptable property (e.g. `BinaryString`, `SharedString`, `SystemAddress`) from a given [`Object`](https://create.roblox.com/docs/reference/engine/classes/Object), even if it would normally throw an error when accessed directly.",
+      "link":"https://docs.sunc.io/Reflection/gethiddenproperty",
+      "signature":"function gethiddenproperty(object: Object, property_name: string): (any, boolean)"
+    },
+    "_description":"The **Reflection** library allows access to and manipulation of hidden or non-scriptable properties of [Objects](https://create.roblox.com/docs/reference/engine/classes/Object) and internal execution context. It is primarily used to bypass standard Luau restrictions in controlled environments.",
+    "_link":"https://docs.sunc.io/Reflection",
+    "getthreadidentity":{
+      "parameters":[],
+      "title":"getthreadidentity",
+      "description":"`getthreadidentity` retrieves the thread's identity of the running [Luau thread](https://create.roblox.com/docs/reference/engine/libraries/coroutine#running).",
+      "link":"https://docs.sunc.io/Reflection/getthreadidentity",
+      "signature":"function getthreadidentity(): number"
+    },
+    "sethiddenproperty":{
+      "parameters":{
+        "object":"The [Object](https://create.roblox.com/docs/reference/engine/classes/Object) that owns the target property.",
+        "property_value":"The new value to assign to the property.",
+        "property_name":"The name of the property to update."
+      },
+      "title":"sethiddenproperty",
+      "description":"`sethiddenproperty` assigns a value to a hidden or non-scriptable property of an [`Object`](https://create.roblox.com/docs/reference/engine/classes/Object), even if that property is inaccessible.",
+      "link":"https://docs.sunc.io/Reflection/sethiddenproperty",
+      "signature":"function sethiddenproperty(object: Object, property_name: string, property_value: any): boolean"
+    },
+    "setscriptable":{
+      "parameters":{
+        "object":"The [Object](https://create.roblox.com/docs/reference/engine/classes/Object) that owns the target property.",
+        "state":"Whether to enable (`true`) or disable (`false`) scriptability.",
+        "property_name":"The name of the property to make scriptable or un-scriptable."
+      },
+      "title":"setscriptable",
+      "description":"`setscriptable` toggles the scriptability of a hidden or non-scriptable property on an [`Object`](https://create.roblox.com/docs/reference/engine/classes/Object). When a property is made scriptable, it can be accessed or assigned through standard indexing.",
+      "link":"https://docs.sunc.io/Reflection/setscriptable",
+      "signature":"function setscriptable(object: Object, property_name: string, state: boolean): boolean | nil"
+    },
+    "setthreadidentity":{
+      "parameters":{
+        "id":"The identity level to set the current thread to."
+      },
+      "title":"setthreadidentity",
+      "description":"`setthreadidentity` sets the current [Luau thread](https://create.roblox.com/docs/reference/engine/libraries/coroutine#running) identity and capabilities matching that identity.",
+      "link":"https://docs.sunc.io/Reflection/setthreadidentity",
+      "signature":"function setthreadidentity(id: number): ()"
+    },
+    "isscriptable":{
+      "parameters":{
+        "object":"The [`Object`](https://create.roblox.com/docs/reference/engine/classes/Object) that owns the target property.",
+        "property":"The name of the property to check."
+      },
+      "title":"isscriptable",
+      "description":"`isscriptable` returns whether the given property of an [`Object`](https://create.roblox.com/docs/reference/engine/classes/Object) is scriptable (i.e. it does not have the `notscriptable` tag).",
+      "link":"https://docs.sunc.io/Reflection/isscriptable",
+      "signature":"function isscriptable(object: Object, property: string): boolean | nil"
+    }
+  },
+  "Miscellaneous":{
+    "request":{
+      "parameters":{
+        "StatusCode":"`number`",
+        "StatusMessage":"`string`",
+        "options":"A table of fields defining the HTTP request.",
+        "Url":"`string`",
+        "Method":"`string`",
+        "Body":"`string`",
+        "Headers":"`{ [string]: string }`",
+        "Cookies":"`{ [string]: string }?`",
+        "Success":"`boolean`"
+      },
+      "title":"request",
+      "description":"`request` sends a [HTTP request](https://en.wikipedia.org/wiki/HTTP) to the given URL using the provided configuration table. It yields until the request is complete and returns a structured response.",
+      "link":"https://docs.sunc.io/Miscellaneous/request",
+      "signature":"type RequestOptions = {\n    Url: string,\n    Method: \"GET\" | \"HEAD\" | \"POST\" | \"PUT\" | \"DELETE\" | \"OPTIONS\" | \"PATCH\",\n    Body: string?,\n    Headers: { [string]: string }?,\n    Cookies: { [string]: string }?\n}\ntype Response = {\n    Success: boolean,\n    Body: string,\n    StatusCode: number,\n    StatusMessage: string,\n    Headers: { [string]: string }\n}\nfunction request(options: RequestOptions): Response"
+    },
+    "_description":"The **Miscellaneous** library contains functions that do not belong to a specific category.",
+    "_link":"https://docs.sunc.io/Miscellaneous",
+    "identifyexecutor":{
+      "parameters":[],
+      "title":"identifyexecutor",
+      "description":"`identifyexecutor` returns the name and version of the currently running executor.",
+      "link":"https://docs.sunc.io/Miscellaneous/identifyexecutor",
+      "signature":"function identifyexecutor(): (string, string)"
+    }
+  },
+  "Encoding":{
+    "lz4decompress":{
+      "parameters":{
+        "data":"The string to decompress."
+      },
+      "title":"lz4decompress",
+      "description":"`lz4decompress` decompresses a string that was encoded using the [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)) compression algorithm back to regular data.",
+      "link":"https://docs.sunc.io/Encoding/lz4decompress",
+      "signature":"function lz4decompress(data: string): string"
+    },
+    "_description":"The **Encoding** library provides functions for common binary transformation operations such as Base64 and LZ4 - the **encoding**, **decoding**, **compression**, and **decompression** of data.\nThis library replaces the old `crypt` library, which has now been fully deprecated.",
+    "_link":"https://docs.sunc.io/Encoding",
+    "lz4compress":{
+      "parameters":{
+        "data":"The string to compress."
+      },
+      "title":"lz4compress",
+      "description":"`lz4compress` compresses a string with the [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)) compression algorithm.",
+      "link":"https://docs.sunc.io/Encoding/lz4compress",
+      "signature":"function lz4compress(data: string): string"
+    },
+    "base64encode":{
+      "parameters":{
+        "data":"The string to encode."
+      },
+      "title":"base64encode",
+      "description":"`base64encode` encodes a string with [Base64](https://en.wikipedia.org/wiki/Base64) encoding.",
+      "link":"https://docs.sunc.io/Encoding/base64encode",
+      "signature":"function base64encode(data: string): string"
+    },
+    "base64decode":{
+      "parameters":{
+        "data":"The Base64-encoded string to decode."
+      },
+      "title":"base64decode",
+      "description":"`base64decode` decodes a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) string back into its original form.",
+      "link":"https://docs.sunc.io/Encoding/base64decode",
+      "signature":"function base64decode(data: string): string"
+    }
+  },
+  "Signals":{
+    "getconnections":{
+      "parameters":{
+        "signal":"The signal to inspect for active connections."
+      },
+      "title":"getconnections",
+      "description":"`getconnections` retrieves a list of [`Connection`](https://docs.sunc.io/Signals/Connection) objects currently attached to a given [`RBXScriptSignal`](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal).",
+      "link":"https://docs.sunc.io/Signals/getconnections",
+      "signature":"function getconnections(signal: RBXScriptSignal): {Connection}"
+    },
+    "_description":"The **Signals** library provides functions for inspecting and manipulating [`RBXScriptSignal`](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal) and [`RBXScriptConnection`](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptConnection) objects.",
+    "_link":"https://docs.sunc.io/Signals",
+    "firesignal":{
+      "parameters":{
+        "signal":"The signal whose connections you want to manually fire.",
+        "...?":"The arguments to pass to the connected functions."
+      },
+      "title":"firesignal",
+      "description":"`firesignal` Invokes all Luau [connections](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptConnection) connected to a given [`RBXScriptSignal`](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal).",
+      "link":"https://docs.sunc.io/Signals/firesignal",
+      "signature":"function firesignal(signal: RBXScriptSignal, ...: any?)"
+    },
+    "replicatesignal":{
+      "parameters":{
+        "signal":"The signal to replicate to the server.",
+        "...?":"Arguments to pass to the signal."
+      },
+      "title":"replicatesignal",
+      "description":"`replicatesignal` replicates a signal to the server with the provided arguments, if possible. The arguments must also match accordingly to the signal itself. To know a signal's arguments, visit [this](https://robloxapi.github.io/ref/).",
+      "link":"https://docs.sunc.io/Signals/replicatesignal",
+      "signature":"function replicatesignal(signal: RBXScriptSignal, ...: any?)"
+    }
+  }
+}
