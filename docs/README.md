@@ -4,7 +4,7 @@ Welcome to the official documentation for **sUNC** - senS' Unified Naming Conven
 
 This documentation site serves as the central knowledge base for understanding what sUNC is, how it works, and how to contribute to the project.
 
-Whether you're an executor developer, a curious tester, or a contributor helping document functions, you're in the right place!
+Whether you are an executor developer, a curious tester, or a contributor helping document functions, you are in the right place!
 
 !!! info "Not every original UNC function is tested!"
 
